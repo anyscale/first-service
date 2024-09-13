@@ -1,0 +1,14 @@
+# check out service reference for all supported fields: https://docs.anyscale.com/reference/service-api#serviceconfig
+
+name: my-first-service
+# use the default container image when empty
+image_uri: 
+# use the default configuration of clusters when empty
+compute_config:
+# choose which directory to upload to Anyscale 
+working_dir: .
+# use the default Anyscale Cloud in your organization when empty
+cloud:
+# define the Ray serve apps
+applications:
+- import_path: main:app
