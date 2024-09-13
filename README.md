@@ -16,7 +16,7 @@ We recommend deploying Ray Serve apps as Anyscale Services when you move to prod
 
 **Note**: 
 - In open source Ray, users deploy Ray apps with Ray Serve API. Anyscale Services leverage Ray Serve API to deploy Ray apps on standalone Ray Clusters and manage the lifecycle of them. It also provides the additional features listed above. No code change to your Ray script is needed when deploying your existing Ray apps as Anyscale Services.
-- For development work requires rapid iteration, it is better to use [Anyscale Workspaces](https://docs.anyscale.com/platform/workspaces/) or other development environments.
+- For development work that requires rapid iteration, it is better to use [Anyscale Workspaces](https://docs.anyscale.com/platform/workspaces/) or other development environments.
 
 ## Deploy an Anyscale Service
 
@@ -64,9 +64,9 @@ curl -H "Authorization: Bearer $BEARER_TOKEN" "$BASE_URL/hello?name=$WHO_TO_SAY_
 ```
 
 
-##  View Service in UI
+##  View services in UI
 
-The output from the deployment command should also print the URL to your service in Anyscale UI. You can view the service state, logs, metrics, and Ray Dashboard in the UI.
+The output from the deployment command should also print the URL to your service in Anyscale UI. You can view the service state, logs, metrics, and Ray Dashboard in UI.
 
 <img src="assets/anyscale-service.png" height=400px>
 
@@ -87,5 +87,5 @@ This tutorial shows your how to:
 Check out [Anyscale Services documentation](https://docs.anyscale.com/platform/services/) for more guides:
 - upgrade a service
 - configure the autoscaling of deployment replicas
-- monitoring and debugging
-- and much more
+- monitor and debug
+- and more
