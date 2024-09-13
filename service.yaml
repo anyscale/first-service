@@ -9,6 +9,6 @@ compute_config:
 working_dir: .
 # use the default Anyscale Cloud in your organization when empty
 cloud:
-# define the Ray serve apps
+# configure the Ray Serve apps
 applications:
 - import_path: main:app
