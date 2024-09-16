@@ -52,9 +52,9 @@ This example includes two important files
 Set the bearer token and base URL (do not include `/` at the end) below which should be printed in the output of the deployment command. 
 
 ```bash
-BEARER_TOKEN={bearer token of your service}
-BASE_URL={base URL of your service}
-WHO_TO_GREET=world
+export BEARER_TOKEN={bearer token of your service}
+export BASE_URL={base URL of your service}
+export WHO_TO_GREET=world
 ```
 
 #### 3.2 Query the endpoint
