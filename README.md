@@ -54,13 +54,13 @@ Set the bearer token and base URL (do not include `/` at the end) below which sh
 ```bash
 BEARER_TOKEN={bearer token of your service}
 BASE_URL={base URL of your service}
-WHO_TO_SAY_HELLO=world
+WHO_TO_GREET=world
 ```
 
 #### 3.2 Query the endpoint
 Hit the endpoint defined in your Ray script  (`/hello` in this example) with the environment variables.
 ```bash
-curl -H "Authorization: Bearer $BEARER_TOKEN" "$BASE_URL/hello?name=$WHO_TO_SAY_HELLO"
+curl -H "Authorization: Bearer $BEARER_TOKEN" "$BASE_URL/hello?name=$WHO_TO_GREET"
 ```
 
 
