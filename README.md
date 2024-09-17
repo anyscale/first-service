@@ -33,7 +33,7 @@ $ anyscale login
 This example includes a simple Ray app that sends greetings upon request. Run the following command to deploy it as an Anyscale Service
 
 ```bash
-$ anyscale service deploy -f service.yaml -n {name of your service}
+$ anyscale service deploy -f service.yaml -n {provide a name for your service}
 ```
 This example includes two important files
 - service.yaml: set the import path of your app and the configs of your service. Learn more about the [supported fields](https://docs.anyscale.com/reference/service-api#serviceconfig).
@@ -47,7 +47,7 @@ This example includes two important files
 #### 3.1 What is needed in your query
 - base URL: the base URL of the service you want to query
 - bearer token: if query authentication is enabled, a unique token will be generated for one service to authenticate all requests
-- route / path: the endpoint to query. It is mapped to some functionality defined in your Ray Serve app. By default, `/` is used.
+- route: the path or endpoint to query. It is mapped to some functionality defined in your Ray Serve app. By default, `/` is used.
 - query parameters: query parameters specific to a route or path
 
 
