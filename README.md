@@ -47,7 +47,7 @@ This example includes two important files
 #### 3.1 What is needed in your query
 - base URL: the base URL of the service you want to query
 - bearer token: if query authentication is enabled, a unique token will be generated for one service to authenticate all requests
-- route: the path or endpoint to query. It is mapped to some functionality defined in your Ray Serve app. By default, `/` is used.
+- path: the route or endpoint to query. It is mapped to some functionality defined in your Ray Serve app. By default, `/` is used.
 - query parameters: query parameters specific to a route or path
 
 
