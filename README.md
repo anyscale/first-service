@@ -9,7 +9,7 @@ This tutorial shows you how to:
 3. View and monitor the service in Anyscale UI.
 
 ## When to use Anyscale Services
-We recommend deploying Ray Serve apps as Anyscale Services when you move to production or if the following features are needed: 
+We recommend deploying [Ray Serve apps](https://docs.ray.io/en/latest/serve/index.html) as Anyscale Services when you move to production or if the following features are needed: 
 - Zero down time upgrade / canary rollout
 - High availability
 - Programmatic submission API & CI/CD integration
@@ -23,7 +23,7 @@ We recommend deploying Ray Serve apps as Anyscale Services when you move to prod
 You can deploy services from any machines, using the Anyscale CLI or SDK. In this tutorial, we use Anyscale CLI as an example. 
 ### Step 1: install Anycale CLI and authenticate
 ```bash
-# Install Anyscale CLI
+# Install the lastet version of Anyscale CLI
 $ pip install -U anyscale
 # Authenticate
 $ anyscale login
@@ -33,7 +33,7 @@ $ anyscale login
 This example includes a simple Ray app that sends greetings upon request. Run the following command to deploy it as an Anyscale Service
 
 ```bash
-$ anyscale service deploy -f service.yaml
+$ anyscale service deploy -f service.yaml -n {name of your service}
 ```
 This example includes two important files
 - service.yaml: set the import path of your app and the configs of your service. Learn more about the [supported fields](https://docs.anyscale.com/reference/service-api#serviceconfig).
@@ -44,25 +44,20 @@ This example includes two important files
 
 ### Step 3: Query the service
 
-#### 3.1 Set the input for your request as environment variables
-- bearer token: a token that is generated and used to authenticate your request to a service
-- base URL: the base URL of a service
-- name: this is query parameter specific to your Ray script
+#### 3.1 What is needed in your query
+- base URL: the base URL of the service you want to query
+- bearer token: if query authentication is enabled, a unique token will be generated for one service to authenticate all requests
+- route / path: the endpoint to query. It is mapped to some functionality defined in your Ray Serve app. By default, `/` is used.
+- query parameters: query parameters specific to a route or path
 
-Set the bearer token and base URL (do not include `/` at the end) below which should be printed in the output of the deployment command. 
-
-```bash
-export BEARER_TOKEN={bearer token of your service}
-export BASE_URL={base URL of your service}
-export WHO_TO_GREET=world
-```
 
 #### 3.2 Query the endpoint
-Hit the endpoint defined in your Ray script  (`/hello` in this example) with the environment variables.
-```bash
-curl -H "Authorization: Bearer $BEARER_TOKEN" "$BASE_URL/hello?name=$WHO_TO_GREET"
-```
+- Set the bearer token and base URL (do not include `/` at the end) below which should be printed in the output of the deployment command
+- Hit the path defined in your Ray script  (`/hello` in this example) with proper parameters (`world` is used as an example. Try change it!)
 
+```bash
+curl -H "Authorization: Bearer {enter bearer token}" "{enter base URL}/hello?name=world"
+```
 
 ##  View services in UI
 
@@ -74,7 +69,7 @@ The output from the deployment command should also print the URL to your service
 ##  Clean up the resources
 Terminate the service by clicking the button in the top right corner of the UI or run the follow command:
 ```bash
-$ anyscale service terminate -n my-first-service
+$ anyscale service terminate -n {name of your service}
 ```
 
 ## Summary
